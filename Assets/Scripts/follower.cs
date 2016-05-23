@@ -35,27 +35,27 @@ public class follower : MonoBehaviour {
 		int i = 0;
 		while (i < l) {
 			//setting the velocity of each particle from target to target
-			if (p[i].lifetime<(p[i].startLifetime/12)){
+			if (p[i].lifetime < p[i].startLifetime / 12){
 				p[i].velocity = 6f / p[i].startLifetime * D6;
 			}
-			else if (p[i].lifetime<((3*p[i].startLifetime)/12)){
-				float t = ((p[i].startLifetime/6)-(p[i].lifetime-(p[i].startLifetime/12)))/(p[i].startLifetime/6);
+			else if (p[i].lifetime < 3 * p[i].startLifetime / 12){
+				float t = (p[i].startLifetime/6 - (p[i].lifetime - p[i].startLifetime / 12)) / p[i].startLifetime/6;
 				p[i].velocity = 6f / p[i].startLifetime * Bezier(D5,D6,t);
 			}
-			else if (p[i].lifetime<((5*p[i].startLifetime)/12)){
-				float t = ((p[i].startLifetime/6)-(p[i].lifetime-((3*p[i].startLifetime)/12)))/(p[i].startLifetime/6);
+			else if (p[i].lifetime < 5 * p[i].startLifetime / 12){
+				float t = (p[i].startLifetime/6 - (p[i].lifetime - 3*p[i].startLifetime / 12)) / p[i].startLifetime/6;
 				p[i].velocity = 6f / p[i].startLifetime * Bezier(D4,D5,t);
 			}
-			else if (p[i].lifetime<((7*p[i].startLifetime)/12)){
-				float t = ((p[i].startLifetime/6)-(p[i].lifetime-((5*p[i].startLifetime)/12)))/(p[i].startLifetime/6);
+			else if (p[i].lifetime < 7 * p[i].startLifetime / 12) {
+				float t = (p[i].startLifetime/6 - (p[i].lifetime - 5*p[i].startLifetime/12)) / p[i].startLifetime/6;
 				p[i].velocity = 6f / p[i].startLifetime * Bezier(D3,D4,t);
 			}
-			else if (p[i].lifetime<((9*p[i].startLifetime)/12)){
-				float t = ((p[i].startLifetime/6)-(p[i].lifetime-((7*p[i].startLifetime)/12)))/(p[i].startLifetime/6);
+			else if (p[i].lifetime < 9 * p[i].startLifetime / 12){
+				float t = (p[i].startLifetime/6 - (p[i].lifetime - 7*p[i].startLifetime/12)) / p[i].startLifetime/6;
 				p[i].velocity = 6f / p[i].startLifetime * Bezier(D2,D3,t);
 			}
-			else if (p[i].lifetime<((11*p[i].startLifetime)/12)){
-				float t = ((p[i].startLifetime/6)-(p[i].lifetime-((9*p[i].startLifetime)/12)))/(p[i].startLifetime/6);
+			else if (p[i].lifetime < 11 * p[i].startLifetime / 12){
+				float t = (p[i].startLifetime/6 - (p[i].lifetime - 9 * p[i].startLifetime/12)) / p[i].startLifetime/6;
 				p[i].velocity = 6f / p[i].startLifetime * Bezier(D1,D2,t);
 			}
 			else {
