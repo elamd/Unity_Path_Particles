@@ -43,13 +43,15 @@ public class SplineParticleWalker : MonoBehaviour{
                 }
             }
 
-            float unitMeasure = p[i].startLifetime / spline.points.Length;
+            float currentMeasure = p[i].lifetime / p[i].startLifetime;
+            float remapped = Remap(currentMeasure, 0, 1, 0, spline.points.Length);
 
-            if (p[i].lifetime < p[i].startLifetime / spline.points.Length) {
-                p[i].velocity = spline.points.Length / p[i].startLifetime * spline.points[spline.points.Length - 1];
-            }
+            p[i].velocity = spline.points[(int)remapped];
         }
         GetComponent<ParticleSystem>().SetParticles(p, particleCount);
     }
-   
+
+    public float Remap(this float value, float from1, float to1, float from2, float to2) {
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
+    }
 }
